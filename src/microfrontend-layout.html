@@ -1,0 +1,18 @@
+<single-spa-router mode="hash">
+  <nav>
+    <application name="@anddone/nav"></application>
+  </nav>
+  <main>
+    <redirect from="/" to="/profile"></redirect>
+    <route path="profile">
+      <application name="@anddone/profile"></application>
+    </route>
+    <route path="settings">
+      <application name="@anddone/settings"></application>
+    </route>
+    <route default>
+      <application name="@single-spa/welcome"></application>
+    </route>
+  </main>
+</single-spa-router>
+
