@@ -45,16 +45,18 @@
   <!-- <script type="injector-importmap" src="/importmap.json"></script> -->
 
   <% if (isLocal) { %>
-  <script type="systemjs-importmap">
-    {
-      "imports": {
-        "@anddone/root-config": "//localhost:9000/anddone-root-config.js",
-        "@anddone/nav": "//localhost:4201/main.js",
-        "@anddone/profile": "//localhost:4202/main.js",
-        "@anddone/settings": "//localhost:4203/main.js"
+    <script type="systemjs-importmap">
+      {
+        "imports": {
+          "@anddone/root-config": "//localhost:9000/anddone-root-config.js",
+          "@anddone/layout": "//localhost:4201/main.js",
+          "@anddone/profile": "//localhost:4202/main.js",
+          "@anddone/settings": "//localhost:4203/main.js"
+        }
       }
-    }
-  </script>
+    </script>
+  <% } else { %>
+    <!-- <script type="systemjs-importmap" src="/import-map.json"></script> -->
   <% } %>
 
   <!--

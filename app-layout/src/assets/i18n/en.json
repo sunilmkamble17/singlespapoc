@@ -1,0 +1,67 @@
+{
+    "login": {
+    "login": "Login",
+    "userName": "Username",
+    "password": "Password",
+    "remeberMe": "Remember me",
+    "forgotPassword": "Forgot Password?",
+    "emulateSuccess": "Please wait while you are being authenticated...",
+    "emulateError": "Cannot emulate at this moment, please ask user to reset account credentials..."
+  },
+  "forgotPassword": {
+    "recoverPassword": "Recover Password",
+    "note": "Please enter your username and a new password will be generated and emailed to you"
+  },
+  "changePassword": {
+    "title": "Change Password",
+    "currentPassword": "Current Password",
+    "newPassword": "New Password",
+    "confirmNewPassword": "Confirm New Password",
+    "ruleHeading": "In order to protect your account, make sure your password:",
+    "passwordRule1": "Minimum password length is 14 characters",
+    "passwordRule2": "Require at least one uppercase letter (A-Z)",
+    "passwordRule3": "Require at least one lowercase letter (a-z)",
+    "passwordRule4": "Require at least one number",
+    "passwordRule5": "Require at least one special character",
+    "cancel": "Cancel",
+    "save": "Save"
+  },
+    "sideNav": {
+        "payments": "Payments",
+        "financing": "Financing",
+        "apiKeys": " API Keys",
+        "webhooks": "Webhooks",
+        "paymentLink": "Payment Link",
+        "createLink": "Create Link",
+        "viewlinks": "View Links",
+        "reporting": "Reporting",
+        "settings": "Settings",
+        "payment": "Payment Branding",
+        "users": "Users",
+        "account": "Account",
+        "support": "Support",
+        "myProfile": "My Profile",
+        "myPreferences": "My Preferences",
+        "signOff": "Sign Off",
+        "developer": "Developer",
+        "business-settings": "Business Settings",
+        "processingDetails": "Processing Details",
+        "notifications": "Notifications",
+        "webhookEventLogs": "Webhook Event Logs",
+        "viewQuotes": "View Quotes",
+        "newQuote": "Create Quote",
+        "invoices": "Invoices",
+        "vendor": "Vendor Management",
+        "viewVendors": "View Vendors",
+        "createVendor": "Onboard vendor",
+        "batches": "Batches",
+        "viewPayments": "View Payments",
+        "sendPayment": "Send Payment"
+    },
+    "footer": {
+        "copyrightText1": "Copyright © ",
+        "copyrightText2": " - AndDone ®. All rights reserved.",
+        "privacyStatement": "Privacy Statement",
+        "termsOfService": "Website Terms of Service"
+    }
+}

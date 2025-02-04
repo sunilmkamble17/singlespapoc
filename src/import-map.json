@@ -1,0 +1,8 @@
+{
+    "imports": {
+        "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js",
+        "@anddone/layout": "https://remote-url-for-layout/main.js",
+        "@anddone/profile": "https://remote-url-for-profile/main.js",
+        "@anddone/settings": "https://remote-url-for-settings/main.js"
+    }
+}

@@ -1,18 +1,25 @@
 <single-spa-router mode="hash">
-  <nav>
-    <application name="@anddone/nav"></application>
-  </nav>
-  <main>
-    <redirect from="/" to="/profile"></redirect>
-    <route path="profile">
-      <application name="@anddone/profile"></application>
-    </route>
-    <route path="settings">
-      <application name="@anddone/settings"></application>
-    </route>
-    <route default>
-      <application name="@anddone/profile"></application>
-    </route>
-  </main>
-</single-spa-router>
+  <!-- Public Routes (No Authentication Required) -->
+  <!-- <route path="">
+    <application name="@anddone/layout"></application>
+  </route>
+  <route path="login">
+    <application name="@anddone/layout"></application>
+  </route>
+  <route path="forgotpassword">
+    <application name="@anddone/layout"></application>
+  </route>
+  <route path="changepassword">
+    <application name="@anddone/layout"></application>
+  </route> -->
 
+  <!-- Secure Routes (Requires Authentication) -->
+  <!-- <route path="profile">
+    <application name="@anddone/layout"></application>
+  </route> -->
+  <!-- <route path="settingsasdasdas">
+    <application name="@anddone/layout"></application>
+  </route> -->
+
+  
+</single-spa-router>
