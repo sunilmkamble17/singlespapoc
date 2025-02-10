@@ -1,19 +1,22 @@
 const { ModuleFederationPlugin } = require("webpack").container;
-const { shareAll } = require('@angular-architects/module-federation/webpack');
+const { shareAll } = require("@angular-architects/module-federation/webpack");
+const path = require("path");
 
 module.exports = {
+  mode: "development",
+  entry: "./src/main.single-spa.ts",
   output: {
     uniqueName: "profile",
-    publicPath: "auto",
+    publicPath: "http://localhost:4202/",
   },
   plugins: [
     new ModuleFederationPlugin({
       name: "profile",
-      filename: "main.js",
+      filename: "remoteEntry.js",
       exposes: {
-        "./ProfileModule": "./src/app/profile.module.ts", // Expose profile module
+        "./ProfileComponent": "./src/app/app.component.ts",
       },
-      shared: shareAll({ singleton: true, strictVersion: false, requiredVersion: 'auto' }),
+      shared: shareAll({ singleton: true, strictVersion: false, requiredVersion: "auto" }),
     }),
   ],
 };

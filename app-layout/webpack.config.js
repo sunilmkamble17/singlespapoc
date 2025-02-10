@@ -1,20 +1,17 @@
 const { ModuleFederationPlugin } = require("webpack").container;
-const { shareAll } = require('@angular-architects/module-federation/webpack');
 
 module.exports = {
+  name: "layout",
   output: {
-    uniqueName: "layout",
-    publicPath: "auto",
+    publicPath: "http://localhost:4201/",
   },
   plugins: [
     new ModuleFederationPlugin({
       name: "layout",
-      filename: "main.js",
-      exposes: {
-        "./PublicModule": "./src/app/module/public/public.module.ts", // Expose public module
-        "./SecureModule": "./src/app/module/secure/secure.module.ts", // Expose secure module
+      remotes: {
+        profile: "profile@http://localhost:4202/remoteEntry.js",
+        settings: "settings@http://localhost:4203/remoteEntry.js",
       },
-      shared: shareAll({ singleton: true, strictVersion: false, requiredVersion: 'auto' }),
     }),
   ],
 };

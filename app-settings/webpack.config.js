@@ -1,19 +1,22 @@
 const { ModuleFederationPlugin } = require("webpack").container;
-const { shareAll } = require('@angular-architects/module-federation/webpack');
+const { shareAll } = require("@angular-architects/module-federation/webpack");
+const path = require("path");
 
 module.exports = {
+  mode: "development",
+  entry: "./src/main.single-spa.ts",
   output: {
     uniqueName: "settings",
-    publicPath: "auto",
+    publicPath: "http://localhost:4203/",
   },
   plugins: [
     new ModuleFederationPlugin({
       name: "settings",
-      filename: "main.js",
+      filename: "remoteEntry.js",
       exposes: {
-        "./SettingsModule": "./src/app/settings.module.ts", // Expose settings module
+        "./SettingsComponent": "./src/app/app.component.ts",
       },
-      shared: shareAll({ singleton: true, strictVersion: false, requiredVersion: 'auto' }),
+      shared: shareAll({ singleton: true, strictVersion: false, requiredVersion: "auto" }),
     }),
   ],
 };
