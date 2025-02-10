@@ -7,24 +7,18 @@ import { bootstrapApplication } from '@angular/platform-browser';
 import { AppComponent } from './app/app.component';
 import { EmptyRouteComponent } from './app/empty-route/empty-route.component';
 import { APP_BASE_HREF } from '@angular/common';
+import { appConfig } from './app/app.config';
 
 if (environment.production) {
   enableProdMode();
 }
 
 const lifecycles = singleSpaAngular({
-  bootstrapFunction: singleSpaProps => {
-    singleSpaPropsSubject.next(singleSpaProps);
-    return bootstrapApplication(AppComponent, {
-      providers: [
-        getSingleSpaExtraProviders(),
-        provideRouter([{ path: '**', component: EmptyRouteComponent }]),
-        { provide: APP_BASE_HREF, useValue: '/' },
-      ],
-    });
+  bootstrapFunction: async () => {
+    return bootstrapApplication(AppComponent, appConfig);
   },
-  template: '<app-root />',
-  NgZone,
+  template: '<app-root></app-root>',
+  NgZone: NgZone,
 });
 
 export const { bootstrap, mount, unmount } = lifecycles;

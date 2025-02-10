@@ -4,23 +4,21 @@ import { AuthGuard } from '../../common/services/auth.guard';
 
 export const secureRoutes: Routes = [
   {
-    path: '',
-    redirectTo: 'profile',
-    pathMatch: 'full',    
-    children: [
-      {
-        path: 'profile',
-        loadChildren: () =>
-          import('@anddone/profile').then((m) => m.ProfileModule),
-        canActivate: [AuthGuard], // Protect individual routes
-      },
-      {
-        path: 'settings',
-        loadChildren: () =>
-          import('@anddone/settings').then((m) => m.SettingsModule),
-        canActivate: [AuthGuard], // Protect individual routes
-      },
-      { path: '**', redirectTo: 'profile' }, // Default to profile
-    ],
+    path: "",
+    redirectTo: "profile",
+    pathMatch: "full",
   },
+  {
+    path: "profile",
+    canActivate: [AuthGuard],
+    loadComponent: () =>
+      import("profile/ProfileComponent").then((m) => m.ProfileComponent), // ✅ Ensure this matches Webpack `exposes`
+  },
+  {
+    path: "settings",
+    canActivate: [AuthGuard],
+    loadComponent: () =>
+      import("settings/SettingsComponent").then((m) => m.SettingsComponent), // ✅ Ensure this matches Webpack `exposes`
+  },
+  { path: "**", redirectTo: "profile" },
 ];
