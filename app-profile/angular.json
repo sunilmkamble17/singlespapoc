@@ -18,6 +18,11 @@
           "builder": "@angular-builders/custom-webpack:browser",
           "options": {
             "outputPath": "dist/app-profile",
+            "customWebpackConfig": {
+              "path": "./webpack.config.js",              
+              "libraryName": "app-profile",
+              "libraryTarget": "umd"
+            },
             "index": "src/index.html",
             "main": "src/main.single-spa.ts",
             "polyfills": [
@@ -26,20 +31,14 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
+              "src/assets",
+              "src/favicon.ico",
+              "src/remoteEntry.js"
             ],
             "styles": [
               "src/styles.scss"
             ],
             "scripts": [],
-            "customWebpackConfig": {
-              "path": "extra-webpack.config.js",
-              "libraryName": "app-profile",
-              "libraryTarget": "umd"
-            },
             "deployUrl": "http://localhost:4202/"
           },
           "configurations": {
@@ -69,6 +68,12 @@
         },
         "serve": {
           "builder": "@angular-builders/custom-webpack:dev-server",
+          "options": {
+            "port": 4202,
+            "headers": {
+              "Access-Control-Allow-Origin": "*"
+            }
+          },
           "configurations": {
             "production": {
               "buildTarget": "app-profile:build:production"

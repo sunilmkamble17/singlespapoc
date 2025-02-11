@@ -14,15 +14,7 @@ const loadAngularApp = (name: string) => {
 registerApplication({
   name: '@anddone/layout',
   app: loadAngularApp('@anddone/layout'),
-  activeWhen: (location) =>
-    location.hash.startsWith('')
-  //  || 
-  //   location.hash.startsWith('#/login') ||
-  //   location.hash.startsWith('#/login') ||
-  //   location.hash.startsWith('#/forgotpassword') ||
-  //   location.hash.startsWith('#/changepassword')
-    // location.hash.startsWith('#/profile') ||
-    // location.hash.startsWith('#/settings'),
+  activeWhen: (location) => location.hash.startsWith('')
 });
 
 // Register Profile Microfrontend
@@ -39,8 +31,6 @@ registerApplication({
   activeWhen: (location) => location.hash.startsWith('#/settings'),
 });
 
-
-
 // Start single-spa
 start();
 
@@ -50,3 +40,32 @@ start();
 //   singleSpa.navigateToUrl(defaultRoute);
 
 // }
+
+
+
+
+
+// import { registerApplication, start } from 'single-spa';
+
+// // Register the layout microfrontend
+// registerApplication({
+//   name: '@anddone/layout',
+//   app: () => System.import('@anddone/layout'),
+//   activeWhen: ['/'],
+// });
+
+// // Register the profile microfrontend
+// registerApplication({
+//   name: '@anddone/profile',
+//   app: () => System.import('@anddone/profile'),
+//   activeWhen: ['/profile'],
+// });
+
+// // Register the settings microfrontend
+// registerApplication({
+//   name: '@anddone/settings',
+//   app: () => System.import('@anddone/settings'),
+//   activeWhen: ['/settings'],
+// });
+
+// start();

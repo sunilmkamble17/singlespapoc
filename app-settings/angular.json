@@ -26,17 +26,16 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
+              "src/assets",
+              "src/favicon.ico",
+              "src/remoteEntry.js"
             ],
             "styles": [
               "src/styles.scss"
             ],
             "scripts": [],
             "customWebpackConfig": {
-              "path": "extra-webpack.config.js",
+              "path": "webpack.config.js",
               "libraryName": "app-settings",
               "libraryTarget": "umd"
             },
@@ -69,6 +68,12 @@
         },
         "serve": {
           "builder": "@angular-builders/custom-webpack:dev-server",
+          "options": {
+            "port": 4203,
+            "headers": {
+              "Access-Control-Allow-Origin": "*"
+            }
+          },
           "configurations": {
             "production": {
               "buildTarget": "app-settings:build:production"

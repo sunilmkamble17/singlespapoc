@@ -1,24 +1,23 @@
+import { loadRemoteModule } from '@angular-architects/module-federation';
 import { Routes } from '@angular/router';
-import { SecureComponent } from './secure.component';
-import { AuthGuard } from '../../common/services/auth.guard';
 
 export const secureRoutes: Routes = [
   {
-    path: "",
-    redirectTo: "profile",
-    pathMatch: "full",
+    path: 'profile',
+    loadChildren: () =>
+      loadRemoteModule({
+        remoteEntry: 'http://localhost:4202/remoteEntry.js', // URL to profile microfrontend
+        remoteName: 'profile',
+        exposedModule: './ProfileComponent',
+      }).then((m) => m.ProfileComponent),
   },
   {
-    path: "profile",
-    canActivate: [AuthGuard],
-    loadComponent: () =>
-      import("profile/ProfileComponent").then((m) => m.ProfileComponent), // ✅ Ensure this matches Webpack `exposes`
+    path: 'settings',
+    loadChildren: () =>
+      loadRemoteModule({
+        remoteEntry: 'http://localhost:4203/remoteEntry.js', // URL to settings microfrontend
+        remoteName: 'settings',
+        exposedModule: './SettingsComponent',
+      }).then((m) => m.SettingsComponent),
   },
-  {
-    path: "settings",
-    canActivate: [AuthGuard],
-    loadComponent: () =>
-      import("settings/SettingsComponent").then((m) => m.SettingsComponent), // ✅ Ensure this matches Webpack `exposes`
-  },
-  { path: "**", redirectTo: "profile" },
 ];
